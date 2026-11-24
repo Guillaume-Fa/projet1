@@ -1,6 +1,16 @@
 # snake
 
-jeu snake en python avec turtle
+jeu snake en python avec turle
+
+Turtle est le module d'interface dont la taille est de 20 avec 25 cases
+Les directions sont les sorties en chiffre pour le programme
+Les touches sont les input du joueur
+Les couleurs sont: "T" tête, "S" corps et "P" pour la pomme
+Les pommes sont importer dans le niveau avec random a chaque fois que le joueur en mange une
+deplacer défénis si le joueur est libre de bouger sans heurter son corps ou s'il mange une pomme
+     Si le joeur touche son corps il perd, s'il mange une pomme il est correct
+
+
 
 ## lancer
 
