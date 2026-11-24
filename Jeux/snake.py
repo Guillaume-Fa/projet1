@@ -4,6 +4,8 @@ import turtle
 TAILLE = 20
 CASES = 25
 
+#les directions du joeur
+
 directions = {
     "haut": (0, -1),
     "bas": (0, 1),
@@ -18,6 +20,8 @@ opposes = {
     "droite": "gauche",
 }
 
+#input du joueur
+
 touches = {
     "w": "haut",
     "s": "bas",
@@ -25,11 +29,15 @@ touches = {
     "d": "droite",
 }
 
+#niveaux que le joeur chosii
+
 niveaux = {
     1: 150,
     2: 100,
     3: 60,
 }
+
+#couleurs du serpent et de la pomme
 
 couleurs = {
     "T": "lime",
@@ -37,6 +45,7 @@ couleurs = {
     "P": "red",
 }
 
+#céation du jeux et du serpent
 
 def creer_grille(serpent, pomme):
     grille = []
@@ -52,6 +61,7 @@ def creer_grille(serpent, pomme):
     grille[tete[1]][tete[0]] = "T"
     return grille
 
+#Incorporer une pomme à un endroit random
 
 def nouvelle_pomme(serpent):
     while True:
@@ -59,12 +69,14 @@ def nouvelle_pomme(serpent):
         if pomme not in serpent:
             return pomme
 
+#changer la direction selon les input du joueur
 
 def changer_direction(actuelle, nouvelle):
     if nouvelle == opposes[actuelle]:
         return actuelle
     return nouvelle
 
+#vérifie si le joeur entre en contact avec le corps ou mange une pomme
 
 def deplacer(serpent, direction, pomme):
     dx, dy = directions[direction]
@@ -79,6 +91,7 @@ def deplacer(serpent, direction, pomme):
     serpent.pop()
     return "ok"
 
+#+1 au corps quand le joeur mange une pomme
 
 def nouvelle_partie(vitesse, record):
     serpent = [(12, 12), (11, 12), (10, 12)]
@@ -93,6 +106,7 @@ def nouvelle_partie(vitesse, record):
         "fini": False,
     }
 
+#vérifier que le joueur choisi les niveaux de 1 à 3
 
 def valider_niveau(texte):
     niveau = int(texte)
@@ -100,6 +114,7 @@ def valider_niveau(texte):
         raise ValueError("niveau invalide")
     return niveau
 
+#demander au joueur le niveau 1 à 3
 
 def demander_niveau():
     while True:
@@ -108,6 +123,7 @@ def demander_niveau():
         except ValueError:
             print("Erreur : écris 1, 2 ou 3.")
 
+#record quand le joueur meurt
 
 def charger_record(fichier="record.txt"):
     try:
@@ -116,11 +132,11 @@ def charger_record(fichier="record.txt"):
     except (FileNotFoundError, ValueError):
         return 0
 
-
 def sauvegarder_record(record, fichier="record.txt"):
     with open(fichier, "w") as f:
         f.write(str(record))
 
+#Affichage
 
 def dessiner_carre(x, y, couleur):
     stylo.goto(x * TAILLE - 250, 230 - y * TAILLE)
@@ -149,6 +165,7 @@ def afficher():
         stylo.write("PERDU ! Appuie sur Espace", align="center", font=("Arial", 20, "bold"))
     ecran.update()
 
+#augmenter le score quand le joueur mange une pomme
 
 def boucle():
     jeu["direction"] = jeu["prochaine"]
