@@ -146,7 +146,7 @@ def afficher():
                 align="center", font=("Arial", 14, "bold"))
     if jeu["fini"]:
         stylo.goto(0, 0)
-        stylo.write("PERDU ! Appuie sur Espace", align="center", font=("Arial", 20, "bold"))
+        stylo.write("PERDU : Appuie sur Espace", align="center", font=("Arial", 20, "bold"))
     ecran.update()
 
 
