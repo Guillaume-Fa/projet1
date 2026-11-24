@@ -1,0 +1,26 @@
+# snake
+
+jeu snake en python avec turtle
+
+## lancer
+
+```
+py snake.py
+```
+
+choisir niveau 1 2 ou 3
+
+## touches
+
+w a s d pour bouger
+espace pour rejouer
+
+## tests
+
+## fichiers
+
+- snake.py = le jeu
+- test_snake.py = les tests
+- pseudocode.md = le pseudocode
+- record.txt =
+
